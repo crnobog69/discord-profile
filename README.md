@@ -13,7 +13,7 @@
 
 <br>
 
-![Preview](https://utfs.io/f/iyAm4EfBOxVL7h70ld9sbTuoRFJ1KmQcZxL230qPA8v4ySaX)
+![Preview](https://utfs.io/f/iyAm4EfBOxVL2y1VaXvrquNiSAoOQBzwamFWf7M63kTc94sG)
 
 ## 📚
 
