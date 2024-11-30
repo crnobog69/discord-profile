@@ -1,0 +1,88 @@
+---
+// FallingLeaves.astro
+const leaves = Array(12).fill(null).map((_, i) => ({
+  delay: Math.random() * 15,
+  size: Math.random() * 0.3 + 0.2,
+  leftPos: Math.random() * 100,
+  duration: Math.random() * 15 + 20,
+  rotation: Math.random() * 360
+}));
+---
+
+<div class="leaves-container" aria-hidden="true">
+  {leaves.map((leaf, i) => (
+    <div 
+      class="leaf" 
+      style={`
+        --delay: ${leaf.delay}s; 
+        --size: ${leaf.size}; 
+        --left: ${leaf.leftPos}%;
+        --duration: ${leaf.duration}s;
+        --rotation: ${leaf.rotation}deg;
+      `}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.844 511.844" class="leaf-svg">
+        <path d="M319.157,435.775c11.434-11.965,121.275-14.355,121.275-14.355s-20.916-16.01-17.619-33.505 c3.279-17.511,89.004-37.895,89.004-37.895s-76.695-41.878-64.168-82.101c0,0-108.154,14.293-108.811,10.389 c-0.672-3.906,103.594-103.969,103.594-103.969c-84.631,31.49-16.527-88.474-16.527-88.474 c-7.81,4.515-119.869,68.198-88.379-16.433c0,0-100.062,104.266-103.968,103.609S243.945,64.23,243.945,64.23 C203.722,76.742,161.798,0,161.798,0s-20.337,85.771-37.84,89.066c-17.51,3.28-33.505-17.635-33.505-17.635 S88.062,181.287,76.09,192.706c-11.973,11.418-75.43,3.015-75.43,3.015s35.497,58.42-0.633,106.218l61.411,28.804l-8.864,23.462 c0,0,80.482,17.744,83.903,21.103c3.413,3.374,21.088,83.896,21.088,83.896l23.516-8.825l28.843,61.465 c47.79-36.129,106.265-1.515,106.265-1.515S307.739,447.739,319.157,435.775z" />
+      </svg>
+    </div>
+  ))}
+</div>
+
+<style>
+  .leaves-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .leaf {
+    position: absolute;
+    top: -10%;
+    left: var(--left);
+    color: #e54b4b;
+    opacity: 0;
+    animation: falling var(--duration) var(--delay) linear infinite;
+  }
+
+  .leaf-svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transform: rotate(var(--rotation)) scale(var(--size, 1));
+    animation: spinning 5s linear infinite;
+  }
+
+  @keyframes falling {
+    0% {
+      transform: translateY(-10%) rotate(0deg);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.5;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spinning {
+    from {
+      transform: rotate(var(--rotation)) scale(var(--size, 1));
+    }
+    to {
+      transform: rotate(calc(var(--rotation) + 360deg)) scale(var(--size, 1));
+    }
+  }
+
+  .leaf:nth-child(5n) { color: #ffa987; }
+  .leaf:nth-child(7n) { color: #c13030; }
+</style> 
