@@ -1,11 +1,215 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const DISCORD_ID = "693764774931988541";
+const AVATAR_URL = "https://utfs.io/f/iyAm4EfBOxVLoLI6TVey2YjhGBvxsDo8TSeM0WHzrtgpCPUE";
+const BG_URL = "https://utfs.io/f/iyAm4EfBOxVLbL9Wi2ouwTdctnLm4ZY9qBlkaNeMHog327Uj";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Discord | @vltc.">
+	<div class="background">
+		<img src={BG_URL} alt="background" class="absolute w-full h-full object-cover blur-md opacity-50" />
+		<div class="absolute inset-0 bg-[#1e1e24]/80"></div>
+	</div>
+	<main class="min-h-screen flex flex-col items-center justify-center p-4 relative z-10">
+		<div class="animate-fade-in bg-[#1e1e24]/95 backdrop-blur-xl rounded-xl p-8 max-w-md w-full 
+			shadow-[0_0_50px_-12px_rgba(229,75,75,0.25)] 
+			border-[1.5px] border-[#e54b4b]/20 
+			hover:border-[#e54b4b]/30 
+			hover:shadow-[0_0_50px_-6px_rgba(229,75,75,0.35)] 
+			transition-all duration-300"
+		>
+			<!-- Profile Header -->
+			<div class="relative">
+				<!-- Banner -->
+				<div class="h-24 rounded-lg relative overflow-hidden">
+					<img 
+						src="https://utfs.io/f/iyAm4EfBOxVLfIe2IyLqrzhluHep4RJOYaSwM2TKPjyk8NA1" 
+						alt="Profile Banner"
+						class="absolute w-full h-full object-cover"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-[#1e1e24]/70 to-transparent"></div>
+				</div>
+				
+				<!-- Avatar -->
+				<div class="absolute -bottom-10 left-4">
+					<img 
+						src={AVATAR_URL}
+						
+						alt="Discord Avatar" 
+						class="w-20 h-20 rounded-full border-4 border-[#1e1e24] hover:scale-105 transition-transform duration-200 animate-fade-in-up"
+					/>
+				</div>
+			</div>
+
+			<!-- Profile Info -->
+			<div class="mt-14 animate-fade-in-up delay-100">
+				<div class="flex items-center gap-2">
+					<h1 class="text-[#f7ebe8] text-2xl font-bold hover:text-[#ffa987] transition-colors duration-200">vltc.</h1>
+					<span class="text-[#ffa987] text-sm opacity-90">@vltc.</span>
+				</div>
+
+				<!-- Divider -->
+				<div class="h-[1px] bg-[#e54b4b]/10 my-4 animate-expand"></div>
+
+				<!-- About Me -->
+				<div class="space-y-4">
+					<div class="animate-fade-in-up delay-200">
+						<h2 class="text-[#ffa987] text-sm font-semibold uppercase mb-2 opacity-90">About Me</h2>
+						<p class="text-[#f7ebe8] text-sm">7533</p>
+					</div>
+
+					<!-- Member Since -->
+					<div class="animate-fade-in-up delay-300">
+						<h2 class="text-[#ffa987] text-sm font-semibold uppercase mb-2 opacity-90">Discord Member Since</h2>
+						<p class="text-[#f7ebe8] text-sm flex items-center gap-2">
+							<svg class="w-4 h-4 text-[#e54b4b] animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+							</svg>
+							Mar 29, 2020
+						</p>
+					</div>
+				</div>
+
+				<!-- View Profile Button -->
+				<a 
+					href={`https://discord.com/users/${DISCORD_ID}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-6 block w-full bg-[#c13030] hover:bg-[#a82828] text-[#f7ebe8] text-center py-2.5 px-4 rounded-md transition-all duration-200 font-medium hover:scale-[1.02] animate-fade-in-up delay-400"
+				>
+					View Discord Profile
+				</a>
+			</div>
+		</div>
+
+		<!-- Footer Label -->
+		<div class="fixed bottom-4 flex items-center gap-2 text-[#f7ebe8]/50 text-sm font-medium animate-fade-in delay-500">
+			<span>Made with</span>
+			<svg class="w-4 h-4 text-[#e54b4b] animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+				<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+			</svg>
+			<span>by <a 
+				href="https://github.com/crnobog69" 
+				target="_blank" 
+				rel="noopener noreferrer" 
+				class="hover:text-[#f7ebe8] transition-colors duration-200"
+			>црнобог</a></span>
+		</div>
+	</main>
 </Layout>
+
+<style>
+	@keyframes gradient {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
+	.animate-gradient {
+		background-size: 200% 200%;
+		animation: gradient 8s ease infinite;
+	}
+
+	.animate-fade-in {
+		animation: fadeIn 0.5s ease-out;
+	}
+
+	.animate-fade-in-up {
+		animation: fadeInUp 0.5s ease-out forwards;
+		opacity: 0;
+	}
+
+	.animate-expand {
+		animation: expand 0.5s ease-out;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes expand {
+		from {
+			transform: scaleX(0);
+		}
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	.background {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		z-index: 0;
+	}
+
+	.delay-100 {
+		animation-delay: 100ms;
+	}
+
+	.delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.delay-300 {
+		animation-delay: 300ms;
+	}
+
+	.delay-400 {
+		animation-delay: 400ms;
+	}
+
+	/* Webkit Scrollbar Styles */
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #1e1e24;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #e54b4b;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #ffa987;
+	}
+
+	/* Firefox Scrollbar Styles */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: #e54b4b #1e1e24;
+	}
+
+	/* Hide scrollbar when not hovering (optional) */
+	::-webkit-scrollbar-thumb {
+		transition: all 0.2s ease;
+	}
+
+	.background:hover::-webkit-scrollbar-thumb {
+		background: #e54b4b;
+	}
+</style>
